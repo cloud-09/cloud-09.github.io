@@ -1,321 +1,321 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Welcome To &#9729; 09</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body, html {
-                height: 100%;
-            }
-            body {
-                margin: 0;
-                padding: 0;
-                font-family: Verdana, Geneva, sans-serif;
-                font-size: 12px;
-                background-color: #eee;
-                color: #555;
-                overflow: hidden;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            h1, h2, ul {
-                margin-top: 5px;
-                margin-bottom: 5px;
-            }
-            h3{
-                font-size: 1.2em;
-                margin-top: 5px;
-                margin-bottom: 5px;
-            }
-            a, a:visited, a:hover, a:active {
-                color: #0054bF;
-            }
+<head>
+	<title>Welcome To &#9729; 09</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body, html {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Verdana, Geneva, sans-serif;
+			font-size: 12px;
+			background-color: #eee;
+			color: #555;
+			overflow: hidden;
+		}
+		h1 {
+			font-size: 2em;
+		}
+		h1, h2, ul {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		h3{
+			font-size: 1.2em;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		a, a:visited, a:hover, a:active {
+			color: #0054bF;
+		}
 
-            #header {
-                -webkit-transition: max-height ease 0.25s;
-                        transition: max-height ease 0.25s;
-                overflow-y: hidden;
-                position: absolute;
-                z-index: 150;
-                top:0px;
-                left: 0px;
-                width: 100%;
-                padding: 5px;
-                box-sizing: border-box;
-            }
-            #header h1 {
-                margin: 0;
-            }
-            #header:hover {
-                max-height: 1000px;
-            }
-            #header:not(:hover) {
-                max-height: 50px;
-                max-height: calc(2em + 20px);
-            }
-            #header, #rulesContentWrapper, #rulesLowerToggleContainer a {
-                background-color: rgba(210, 220, 230, 0.9);
-            }
+		#header {
+			-webkit-transition: max-height ease 0.25s;
+			transition: max-height ease 0.25s;
+			overflow-y: hidden;
+			position: absolute;
+			z-index: 150;
+			top:0px;
+			left: 0px;
+			width: 100%;
+			padding: 5px;
+			box-sizing: border-box;
+		}
+		#header h1 {
+			margin: 0;
+		}
+		#header:hover {
+			max-height: 1000px;
+		}
+		#header:not(:hover) {
+			max-height: 50px;
+			max-height: calc(2em + 20px);
+		}
+		#header, #rulesContentWrapper, #rulesLowerToggleContainer a {
+			background-color: rgba(210, 220, 230, 0.9);
+		}
 
-            #titleHeading
-            {
-                display: inline-block;
-            }
-            #titleSection {
-                text-align: center;
-            }
-            #chatContainer {
-                position: absolute;
-                z-index: 100;
-                left: 0;
-                right: 0;
-                top:30px;
-                bottom: 0;
-            }
+		#titleHeading
+		{
+			display: inline-block;
+		}
+		#titleSection {
+			text-align: center;
+		}
+		#chatContainer {
+			position: absolute;
+			z-index: 100;
+			left: 0;
+			right: 0;
+			top:30px;
+			bottom: 0;
+		}
 
-            #rulesContainer {
-                position: absolute;
-                z-index: 100;
-                left: 0;
-                right: 0;
-                bottom:0;
-                max-height: calc(100vh - 44px - 1em - 7px);
-                overflow: visible;
-            }
+		#rulesContainer {
+			position: absolute;
+			z-index: 100;
+			left: 0;
+			right: 0;
+			bottom:0;
+			max-height: calc(100vh - 44px - 1em - 7px);
+			overflow: visible;
+		}
 
-            #rulesContent {
-                padding: 5px;
-                overflow: auto;
-                box-sizing: border-box;
-                max-height: calc(100vh - 44px - 1em - 12px);
-                overflow: auto;
-            }
+		#rulesContent {
+			padding: 5px;
+			overflow: auto;
+			box-sizing: border-box;
+			max-height: calc(100vh - 44px - 1em - 12px);
+			overflow: auto;
+		}
 
-            #rulesContentWrapper {
-                position: relative;
-                transition: max-height linear 1s;
-                overflow: hidden;
-            }
-            /*#rulesContainer[data-display-state=hide] {
-                top:calc(100%);
-            }
-            #rulesContainer[data-display-state=show] {
-                top: calc(auto );
-            }*/
+		#rulesContentWrapper {
+			position: relative;
+			transition: max-height linear 1s;
+			overflow: hidden;
+		}
+/*#rulesContainer[data-display-state=hide] {
+top:calc(100%);
+}
+#rulesContainer[data-display-state=show] {
+top: calc(auto );
+}*/
 
-            #rulesContainer[data-display-state=hide] #rulesContentWrapper {
-                max-height: calc(0px);
-            }
+#rulesContainer[data-display-state=hide] #rulesContentWrapper {
+	max-height: calc(0px);
+}
 
-            #rulesContainer[data-display-state=show] #rulesContentWrapper {
-                max-height: calc(100vh - 44px - 1em - 12px);
-            }
+#rulesContainer[data-display-state=show] #rulesContentWrapper {
+	max-height: calc(100vh - 44px - 1em - 12px);
+}
 
-            /*#rulesContainer[data-display-state=hide]*/
-            #rulesLowerToggleContainer {
-                position: absolute;
-                top: calc(-1em - 5px);
-                left: 0;
-                right: 0;
-                height: 0;
-            }
-            #rulesLowerToggleContainer {
-                overflow: visible;
-                text-align: right;
-                padding-right: 130px;
+/*#rulesContainer[data-display-state=hide]*/
+#rulesLowerToggleContainer {
+	position: absolute;
+	top: calc(-1em - 5px);
+	left: 0;
+	right: 0;
+	height: 0;
+}
+#rulesLowerToggleContainer {
+	overflow: visible;
+	text-align: right;
+	padding-right: 130px;
 
-            }
-            #rulesLowerToggleContainer a {
-                padding: 5px;
-                padding-bottom: 1px;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-            }
+}
+#rulesLowerToggleContainer a {
+	padding: 5px;
+	padding-bottom: 1px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
 
-            #rulesContent ul li:not(:first-child){
-                margin-top: 0.5em;
-            }
+#rulesContent ul li:not(:first-child){
+	margin-top: 0.5em;
+}
 
-            .gradientBar {
-                position: absolute;
-                left: 0;
-                right: 0;
-                height:5px;
-            }
-            .gradientBar:first-child {
-                top:0;
-                background: linear-gradient(to bottom, #faebcd, transparent);
-            }
-            .gradientBar:last-child {
-                bottom:0;
-                background: linear-gradient(to top, #faebcd, transparent);
-            }
-        </style>
-        <script type="text/javascript">
-            //closure, because I like closures, and I can
-            var toggleRulesDisplay = (
-                function ()
-                {
-                    var currentState = false; //whether or not it is currently shown at any given moment
-                    return function()
-                    {
-                        var target = document.getElementById('rulesContainer');
-                        if(currentState === false)
-                        {
-                            target.setAttribute('data-display-state', 'show');
-                            currentState = true;
-                        }
-                        else
-                        {
-                            target.setAttribute('data-display-state', 'hide');
-                            currentState = false;
-                        }
+.gradientBar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height:5px;
+}
+.gradientBar:first-child {
+	top:0;
+	background: linear-gradient(to bottom, #faebcd, transparent);
+}
+.gradientBar:last-child {
+	bottom:0;
+	background: linear-gradient(to top, #faebcd, transparent);
+}
+</style>
+<script type="text/javascript">
+//closure, because I like closures, and I can
+var toggleRulesDisplay = (
+	function ()
+	{
+var currentState = false; //whether or not it is currently shown at any given moment
+return function()
+{
+	var target = document.getElementById('rulesContainer');
+	if(currentState === false)
+	{
+		target.setAttribute('data-display-state', 'show');
+		currentState = true;
+	}
+	else
+	{
+		target.setAttribute('data-display-state', 'hide');
+		currentState = false;
+	}
 
-                    }
-                }
-            )();
-        </script>
-    </head>
-    <body>
-        <div id="header">
-            <div id="titleSection">
-                <h1 id="titleHeading">
-                   	&#9729; 09
-                    |
-                </h1>
-                <a href="javascript: toggleRulesDisplay();">
-                    (Show/Hide Rules)
-                </a>
-                |
-                <a href="http://cloud-09.chatango.com" target="_blank">
-                    Chat Only
-                </a>
-                |
-                <a href="http://cloud-09.chatango.com/?flash" target="_blank">
-                    Flash Chat
-                </a>
-            </div>
-        </div>
-        <div id="mainContainer">
-            <div id="chatContainer">
-                <script id="cid0020000121103312328" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"cloud-09","arch":"js","styles":{"c":"000000","d":"000000","f":0,"i":0,"l":"FFFFFF","m":"FFFFFF","p":"10","surl":1,"useonm":1,"cv":0,"ticker":0,"fwtickm":0,"v": 0,"w": 0,"showhdr":0,"showx":0}}</script>
-            </div>
-            <div id="rulesContainer" data-display-state="hide">
-                <div id="rulesLowerToggleContainer">
-                    <a href="javascript: toggleRulesDisplay();">(Show/Hide Rules)</a>
-                </div>
-                <div id="rulesContentWrapper">
-                    <div class="gradientBar">
-                    </div>
-                    	<div id="rulesContent">
-                    		<h1 id="staff">
-								Staff
-							</h1>
-							<h2>Owner</h2>
-							<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"potion"}]' data-white-list='[]' data-black-list='[]'></script>
-							<h2>Moderators</h2>
-							<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"cosmo"},{"username":"neodrome"}, {"username":"xblueboyx"}]' data-white-list='[]' data-black-list='[]' src='https://dl.dropboxusercontent.com/u/37122446/chatango/acc_list/load.js'></script>
-							<h1>Rules</h1>
+}
+}
+)();
+</script>
+</head>
+<body>
+	<div id="header">
+		<div id="titleSection">
+			<h1 id="titleHeading">
+				&#9729; 09
+				|
+			</h1>
+			<a href="javascript: toggleRulesDisplay();">
+				(Show/Hide Rules)
+			</a>
+			|
+			<a href="http://cloud-09.chatango.com" target="_blank">
+				Chat Only
+			</a>
+			|
+			<a href="http://cloud-09.chatango.com/?flash" target="_blank">
+				Flash Chat
+			</a>
+		</div>
+	</div>
+	<div id="mainContainer">
+		<div id="chatContainer">
+			<script id="cid0020000121103312328" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"cloud-09","arch":"js","styles":{"c":"000000","d":"000000","f":0,"i":0,"l":"FFFFFF","m":"FFFFFF","p":"10","surl":1,"useonm":1,"cv":0,"ticker":0,"fwtickm":0,"v": 0,"w": 0,"showhdr":0,"showx":0}}</script>
+		</div>
+		<div id="rulesContainer" data-display-state="hide">
+			<div id="rulesLowerToggleContainer">
+				<a href="javascript: toggleRulesDisplay();">(Show/Hide Rules)</a>
+			</div>
+			<div id="rulesContentWrapper">
+				<div class="gradientBar">
+				</div>
+				<div id="rulesContent">
+					<h1 id="staff">
+						Staff
+					</h1>
+					<h2>Owner</h2>
+					<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"potion"}]' data-white-list='[]' data-black-list='[]'></script>
+					<h2>Moderators</h2>
+					<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"cosmo"},{"username":"neodrome"}, {"username":"xblueboyx"}]' data-white-list='[]' data-black-list='[]' src='https://dl.dropboxusercontent.com/u/37122446/chatango/acc_list/load.js'></script>
+					<h1>Rules</h1>
+					<ul>
+						<li>
+							Don't be an asshole.
+							<br/>
+							If you don't know how to not be an asshole, you're too immature to be here anyway.
+							<br/>
+							As a rule-of-thumb: No racism, homophobia, religion bashing or any other kind of prejidicial hate towards an individual group of people, no bullying, and no trolls.
+						</li>
+						<li>
+							Do not spam or flood.
+							<br/>
+							As a rule-of-thumb: if you have any more than 5 messages in a row or your messages take up most of the screen, you should probably slow down.
+						</li>
+						<li>
+							The <strong style="color:rgb(37, 170, 225);text-shadow: 0px 0px 1px black, 0px 0px 2px rgb(37, 170, 225), 0px 0px 0.5em rgb(37, 170, 225);">Blue</strong> channel is for normal RP. 
+						</li>
+						<li>
+							Any NSWF content (e.g. images, ERP) MUST go in the <strong style="color:rgb(237, 28, 36);text-shadow: 0px 0px 1px black, 0px 0px 2px rgb(237, 28, 36), 0px 0px 0.5em rgb(237, 28, 36);">Red</strong> channel.
+							<br/>
+							<strong>Note:</strong>
 							<ul>
 								<li>
-									Don't be an asshole.
+									The only porn permitted is hentai. "Live-Action" porn is strictly forbidden.
+								</li>
+								<li>
+									You can't actually cyber/have full-on sex in the public room:
 									<br/>
-									If you don't know how to not be an asshole, you're too immature to be here anyway.
-								    <br/>
-								    As a rule-of-thumb: No racism, homophobia, religion bashing or any other kind of prejidicial hate towards an individual group of people, no bullying, and no trolls.
-							    </li>
-							    <li>
-									Do not spam or flood.
+									Flirting, as well as limited teasing or foreplay may be permitted but you will eventually be forced to take it to PMs. (At moderator discretion)
 									<br/>
-									As a rule-of-thumb: if you have any more than 5 messages in a row or your messages take up most of the screen, you should probably slow down.
-								</li>
-								<li>
-									The <strong style="color:rgb(37, 170, 225);text-shadow: 0px 0px 1px black, 0px 0px 2px rgb(37, 170, 225), 0px 0px 0.5em rgb(37, 170, 225);">Blue</strong> channel is for normal RP. 
-								</li>
-								<li>
-									Any NSWF content (e.g. images, ERP) MUST go in the <strong style="color:rgb(237, 28, 36);text-shadow: 0px 0px 1px black, 0px 0px 2px rgb(237, 28, 36), 0px 0px 0.5em rgb(237, 28, 36);">Red</strong> channel.
-									<br/>
-									<strong>Note:</strong>
-									<ul>
-										<li>
-											The only porn permitted is hentai. "Live-Action" porn is strictly forbidden.
-										</li>
-										<li>
-											You can't actually cyber/have full-on sex in the public room:
-											<br/>
-											Flirting, as well as limited teasing or foreplay may be permitted but you will eventually be forced to take it to PMs. (At moderator discretion)
-											<br/>
-											As a rule-of-thumb: once you decide to really "go at it", or start getting graphic about genitals, start moving to PMs.
-										</li> 
-									</ul>
-								</li>
-								<li>
-									Keep drama out of the chat. This means:
-									<ul>
-										<li>
-											No fighting, and no harrassment.
-										</li>
-										<li>
-											Please avoid bringing up personal problems or problems outside of the room within the chat.
-											<br/>
-											This includes self-loathing, as well fishing for compliments.
-										</li>
-										<li>
-											Do not complain about the actions of another visitor or moderator in the public chat. If there is a problem. PM a moderator, and we'll try and help you out.
-										</li>
-									</ul>
-								</li>
-								<li>
-									No advertising, no shock sites, no malware. ANY links to other rooms, porn sites or viruses WILL be permanently and instantly banned.
-								</li>
-								<li>
-									When moderators are in the public room, our word is gospel, and blasphemy is punishable by death. (Within reason)
-									<br/>
-									This means: 
-									<ul>
-										<li>
-											If a mod tells you to stop something, you stop. If their request was unreasonable, resolve it in PMs. If and only if the moderator gives you permission may you resume.
-										</li>
-										<li>
-											Backchatting/disputing an official moderator request is trolling. Any attempt to claim innocence or cry foul instead of PMing a moderator, such as "I didn't do anything wrong." or "That's not fair!", will be punished.
-										</li>
-										<li>
-											"Drop it" also means "Pretend it didn't happen for a while".
-											<br/>
-											Alluding to or referencing to the an argument in ANY WAY is as bad as continueing the argument. 
-										</li>
-										<li>
-											Just because you weren't originally participating in argument doesn't excuse you.
-										</li>
-										<li>
-											<strong><em>There is no excuse</em></strong>. You have been warned.
-										</li>
-									</ul> 
-								</li>
+									As a rule-of-thumb: once you decide to really "go at it", or start getting graphic about genitals, start moving to PMs.
+								</li> 
 							</ul>
-							<h1>Moderation Guidelines (What to expect from us)</h1>
+						</li>
+						<li>
+							Keep drama out of the chat. This means:
 							<ul>
 								<li>
-									Each user will recieve at least 3 warnings before receiving a ban.
+									No fighting, and no harrassment.
 								</li>
 								<li>
-									In general, bans will applied for the following durations, in order: First ban is 1, second ban is 2-3 days, third ban is permanent.
+									Please avoid bringing up personal problems or problems outside of the room within the chat.
 									<br/>
-									However, these are just guides, and specific penalties are at the discretion of the acting moderator(s). 
+									This includes self-loathing, as well fishing for compliments.
 								</li>
 								<li>
-									Complaints or problems with moderator decisions or behaviour will ONLY be handled in PMs. Be it with that mod, or another. Discussing these matters in the room will NOT be tolerated. 
-								</li>
-								<li>
-									We are here to maintain a pleasant and welcoming mood and atmosphere in the room, not just to enforce the rules. We may take action against acts that aren't yet covered by the rules. Within reason.
+									Do not complain about the actions of another visitor or moderator in the public chat. If there is a problem. PM a moderator, and we'll try and help you out.
 								</li>
 							</ul>
-						</div>
-                    <div class="gradientBar">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+						</li>
+						<li>
+							No advertising, no shock sites, no malware. ANY links to other rooms, porn sites or viruses WILL be permanently and instantly banned.
+						</li>
+						<li>
+							When moderators are in the public room, our word is gospel, and blasphemy is punishable by death. (Within reason)
+							<br/>
+							This means: 
+							<ul>
+								<li>
+									If a mod tells you to stop something, you stop. If their request was unreasonable, resolve it in PMs. If and only if the moderator gives you permission may you resume.
+								</li>
+								<li>
+									Backchatting/disputing an official moderator request is trolling. Any attempt to claim innocence or cry foul instead of PMing a moderator, such as "I didn't do anything wrong." or "That's not fair!", will be punished.
+								</li>
+								<li>
+									"Drop it" also means "Pretend it didn't happen for a while".
+									<br/>
+									Alluding to or referencing to the an argument in ANY WAY is as bad as continueing the argument. 
+								</li>
+								<li>
+									Just because you weren't originally participating in argument doesn't excuse you.
+								</li>
+								<li>
+									<strong><em>There is no excuse</em></strong>. You have been warned.
+								</li>
+							</ul> 
+						</li>
+					</ul>
+					<h1>Moderation Guidelines (What to expect from us)</h1>
+					<ul>
+						<li>
+							Each user will recieve at least 3 warnings before receiving a ban.
+						</li>
+						<li>
+							In general, bans will applied for the following durations, in order: First ban is 1, second ban is 2-3 days, third ban is permanent.
+							<br/>
+							However, these are just guides, and specific penalties are at the discretion of the acting moderator(s). 
+						</li>
+						<li>
+							Complaints or problems with moderator decisions or behaviour will ONLY be handled in PMs. Be it with that mod, or another. Discussing these matters in the room will NOT be tolerated. 
+						</li>
+						<li>
+							We are here to maintain a pleasant and welcoming mood and atmosphere in the room, not just to enforce the rules. We may take action against acts that aren't yet covered by the rules. Within reason.
+						</li>
+					</ul>
+				</div>
+				<div class="gradientBar">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
