@@ -77,14 +77,36 @@
 		    
 		        if (direc != "") {
 		          if(typeof func == 'function') func(el,direc);
-		        }
-		        // console.log(swipe_det.eY-swipe_det.sY, direc);
+		       	}
 		        direc = "";
 		      },false);  
 		    }	
 	   		detectswipe('header', function(elm, dir) {
+	   			if (dir == 'd') {
+	   				toggleRulesDisplay(true);
+	   			}
+	   		});
+
+	   		detectswipe('titleSection', function(elm, dir) {
+	   			console.log(dir);
+	   			if (dir == 'u') {
+	   				toggleRulesDisplay(false);
+	   			} else if (dir == 'd') {
+	   				toggleRulesDisplay(true);
+	   			}
+	   		});
+
+	   		detectswipe('rulesContentWrapper', function(elm, dir) {
 	   			var rulesContent = document.getElementById('rulesContent');
-	   			console.log($(rulesContent).offset().top - $(window).scrollTop());
+	   			if (dir == 'u' && rulesContent.scrollTop >=  (rulesContent.scrollHeight - rulesContent.offsetHeight)) {
+	   				toggleRulesDisplay(false);
+	   			} else if (dir == 'd') {
+	   				toggleRulesDisplay(true);
+	   			}
+	   		});
+
+	   		detectswipe('rulesLowerToggleContainer', function(elm, dir) {
+	   			var rulesContent = document.getElementById('rulesContent');
 	   			if (dir == 'u' && rulesContent.scrollTop >=  (rulesContent.scrollHeight - rulesContent.offsetHeight)) {
 	   				toggleRulesDisplay(false);
 	   			} else if (dir == 'd') {
