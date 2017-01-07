@@ -1,182 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Welcome To &#9729; 09</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body, html {
-			height: 100%;
-		}
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Verdana, Geneva, sans-serif;
-			font-size: 12px;
-			background-color: #eee;
-			color: #000;
-			/*overflow: hidden;*/
-		}
-		h1 {
-			font-size: 2em;
-		}
-		h1, h2, ul {
-			margin-top: 5px;
-			margin-bottom: 5px;
-		}
-		h3{
-			font-size: 1.2em;
-			margin-top: 5px;
-			margin-bottom: 5px;
-		}
-		a, a:visited, a:hover, a:active {
-			color: #0054bF;
-		}
+	<link href="common.css" rel="stylesheet">
+	<link href="index.css" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript">
+		//closure, because I like closures, and I can
+		var toggleRulesDisplay = (
+			function ()
+			{
+				var currentState = false; //whether or not it is currently shown at any given moment
+				return function(nextState)
+				{
+					if(typeof nextState === 'undefined' || currentState != nextState)
+					{
+						var target = document.getElementById('rulesContainer');
+						if(currentState === false)
+						{
+							target.setAttribute('data-display-state', 'show');
+							currentState = true;
+						}
+						else
+						{
+							target.setAttribute('data-display-state', 'hide');
+							currentState = false;
+						}
+					}
 
-		#header {
-			-webkit-transition: max-height ease 0.25s;
-			transition: max-height ease 0.25s;
-			/*overflow-y: hidden;*/
-			/*position: absolute;*/
-			z-index: 150;
-			top:0px;
-			left: 0px;
-			width: 100%;
-			padding: 5px;
-			box-sizing: border-box;
-		}
-		#header h1 {
-			margin: 0;
-		}
-/*		#header:hover {
-			max-height: 1000px;
-		}
-		#header:not(:hover) {
-			max-height: 50px;
-			max-height: calc(2em + 20px);
-		}
-*/		#header, #rulesContentWrapper, #rulesLowerToggleContainer a {
-			background-color: rgba(200, 215, 230, 0.9);
-		}
-
-		#titleHeading
-		{
-			display: inline-block;
-		}
-		#titleSection {
-			text-align: center;
-		}
-		#chatContainer {
-			/*position: absolute;*/
-			z-index: 100;
-			left: 0;
-			right: 0;
-			top:30px;
-			bottom: 0;
-		}
-		#mainContainer {
-			/*position: relative;*/
-		}
-
-		#rulesContent {
-			padding: 5px;
-			overflow: auto;
-			box-sizing: border-box;
-			/*max-height: calc(100vh - 44px - 1em - 12px);*/
-			overflow: auto;
-		}
-
-		#rulesContentWrapper {
-			/*position: relative;*/
-			transition: max-height linear 1s;
-			/*overflow: hidden;*/
-		}
-		/*#rulesContainer[data-display-state=hide] {
-		top:calc(100%);
-		}
-		#rulesContainer[data-display-state=show] {
-		top: calc(auto );
-		}*/
-		#rulesContainer {
-			/*position: absolute;*/
-			z-index: 100;
-			left: 0;
-			right: 0;
-			top:0;
-			/*max-height: calc(100vh - 44px - 1em - 7px);*/
-			overflow: visible;
-		}
-/*		#rulesContainer[data-display-state=hide] #rulesContentWrapper {
-			max-height: calc(0px);
-		}
-
-		#rulesContainer[data-display-state=show] #rulesContentWrapper {
-			max-height: calc(100vh - 44px - 1em - 12px);
-		}
-*/
-/*#rulesContainer[data-display-state=hide]*/
-#rulesLowerToggleContainer {
-	position: absolute;
-	/*bottom: calc(-1em - 5px);*/
-	left: auto;
-	right: auto;
-	height: 0;
-}
-#rulesLowerToggleContainer {
-	overflow: visible;
-	text-align: right;
-	padding-right: 130px;
-
-}
-#rulesLowerToggleContainer a {
-	padding: 5px;
-	padding-bottom: 1px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-#rulesContent ul li:not(:first-child){
-	margin-top: 0.5em;
-}
-
-.gradientBar {
-	position: absolute;
-	left: 0;
-	right: 0;
-	height:1em;
-}
-.gradientBar:first-child {
-	top:0;
-	background: linear-gradient(to bottom, rgba(200, 215, 230, 1.0), transparent);
-}
-.gradientBar:last-child {
-	bottom:0;
-	background: linear-gradient(to top, rgba(200, 215, 230, 1.0), transparent);
-}
-</style>
-<script type="text/javascript">
-//closure, because I like closures, and I can
-var toggleRulesDisplay = (
-	function ()
-	{
-var currentState = false; //whether or not it is currently shown at any given moment
-return function()
-{
-	var target = document.getElementById('rulesContainer');
-	if(currentState === false)
-	{
-		target.setAttribute('data-display-state', 'show');
-		currentState = true;
-	}
-	else
-	{
-		target.setAttribute('data-display-state', 'hide');
-		currentState = false;
-	}
-
-}
-}
-)();
-</script>
+				}
+			}
+		)();
+		$.ready( function() {
+			$( '#header, #rulesLowerToggleContainer' ).on( 'swipeup', function(event){toggleRulesDisplay(false);} );
+			$( '#header, #rulesLowerToggleContainer' ).on( 'swipedown', function(event){console.log(event);toggleRulesDisplay(true);} );
+		} );
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -189,6 +49,10 @@ return function()
 				(Click or Swipe Down For Rules)
 			</a>
 			| -->
+			<a href="rules.html" target="_blank">
+				Rules Only
+			</a>
+			|
 			<a href="http://cloud-09.chatango.com" target="_blank">
 				Chat Only
 			</a>
@@ -197,8 +61,6 @@ return function()
 				Flash Chat
 			</a>
 		</div>
-	</div>
-	<div id="mainContainer">
 		<div id="rulesContainer" data-display-state="hide">
 			<div id="rulesContentWrapper">
 				<div class="gradientBar">
@@ -208,12 +70,12 @@ return function()
 						Staff
 					</h1>
 					<div style="display: inline-block;">
-					<h2>Owner</h2>
-					<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"potion"}]' data-white-list='[]' data-black-list='[]'></script>
+						<h2>Owner</h2>
+						<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"potion"}]' data-white-list='[]' data-black-list='[]'></script>
 					</div>
 					<div style="display: inline-block;">
-					<h2>Moderators</h2>
-					<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"cosmo"},{"username":"neodrome"}, {"username":"xblueboyx"}]' data-white-list='[]' data-black-list='[]' src='https://dl.dropboxusercontent.com/u/37122446/chatango/acc_list/load.js'></script>
+						<h2>Moderators</h2>
+						<script type='text/javascript' class='AccListInitScript_v2_DataTag' data-accounts='[{"username":"cosmo"},{"username":"neodrome"}, {"username":"xblueboyx"}]' data-white-list='[]' data-black-list='[]' src='https://dl.dropboxusercontent.com/u/37122446/chatango/acc_list/load.js'></script>
 					</div>
 					<h1>Rules</h1>
 					<ul>
@@ -334,12 +196,14 @@ return function()
 				<div class="gradientBar">
 				</div>
 			</div>
-		<!-- 	<div id="rulesLowerToggleContainer">
-				<a href="javascript: toggleRulesDisplay();">(Show/Hide Rules)</a>
-			</div> -->
+			<div id="rulesLowerToggleContainer">
+				<a href="javascript: toggleRulesDisplay();">Click or Pull Down For Rules</a>
+			</div>
 		</div>
+	</div>
+	<div id="mainContainer">
 		<div id="chatContainer">
-			<script id="cid0020000121103312328" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 500px;">{"handle":"cloud-09","arch":"js","styles":{"c":"000000","d":"000000","f":0,"i":0,"l":"FFFFFF","m":"FFFFFF","p":"10","surl":1,"useonm":1,"cv":0,"ticker":0,"fwtickm":0,"v": 0,"w": 0,"showhdr":0,"showx":0}}</script>
+			<script id="cid0020000121103312328" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"cloud-09","arch":"js","styles":{"c":"000000","d":"000000","f":0,"i":0,"l":"FFFFFF","m":"FFFFFF","p":"10","surl":1,"useonm":1,"cv":0,"ticker":0,"fwtickm":0,"v": 0,"w": 0,"showhdr":0,"showx":0}}</script>
 		</div>
 	</div>
 </body>
