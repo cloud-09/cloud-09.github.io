@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="common.css" rel="stylesheet">
 	<link href="index.css" rel="stylesheet">
-	<script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript">
 		//closure, because I like closures, and I can
 		var toggleRulesDisplay = (
@@ -32,7 +32,7 @@
 				}
 			}
 		)();
-		$.ready( function() {
+		$(document).ready( function() {
 			$( '#header, #rulesLowerToggleContainer' ).on( 'swipe', function(event){toggleRulesDisplay((event.swipestop.coords[1]-event.swipestart.coords[1]) > 0);} );
 		} );
 	</script>
