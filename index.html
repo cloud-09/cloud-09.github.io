@@ -83,7 +83,7 @@
 	   		detectswipe('header', function(elm, dir) {
 	   			var rulesContent = document.getElementById('rulesContent');
 	   			if (dir == 'u' && rulesContent.scrollTop == rulesContent.scrollHeight) {
-	   				// toggleRulesDisplay(false);
+	   				toggleRulesDisplay(false);
 	   			} else if (dir == 'd') {
 	   				toggleRulesDisplay(true);
 	   			}
