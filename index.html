@@ -6,7 +6,6 @@
 	<link href="common.css" rel="stylesheet">
 	<link href="index.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript">
 		//closure, because I like closures, and I can
 		var toggleRulesDisplay = (
@@ -18,14 +17,17 @@
 					if(typeof nextState === 'undefined' || currentState != nextState)
 					{
 						var target = document.getElementById('rulesContainer');
+						var controller = document.getElementById('rulesToggleAnchor');
 						if(currentState === false)
 						{
 							target.setAttribute('data-display-state', 'show');
+							controller.innerHTML = "Click or Pull Up To Hide Rules";
 							currentState = true;
 						}
 						else
 						{
 							target.setAttribute('data-display-state', 'hide');
+							controller.innerHTML = "Click or Pull Down To Show Rules";
 							currentState = false;
 						}
 					}
@@ -82,7 +84,8 @@
 		    }	
 	   		detectswipe('header', function(elm, dir) {
 	   			var rulesContent = document.getElementById('rulesContent');
-	   			if (dir == 'u' && rulesContent.scrollTop == rulesContent.scrollHeight) {
+	   			console.log($(rulesContent).offset().top - $(window).scrollTop());
+	   			if (dir == 'u' && rulesContent.scrollTop >=  (rulesContent.scrollHeight - rulesContent.offsetHeight)) {
 	   				toggleRulesDisplay(false);
 	   			} else if (dir == 'd') {
 	   				toggleRulesDisplay(true);
@@ -137,7 +140,7 @@
 							<br/>
 							If you don't know how to not be an asshole, you're too immature to be here anyway.
 							<br/>
-							As a rule-of-thumb: No racism, homophobia, religion bashing or any other kind of prejidicial hate towards an individual group of people, no bullying, and no trolls.
+							As a rule-of-thumb: No racism, homophobia, religion bashing or any other kind of prejudicial hate towards an individual group of people, no bullying, and no trolls.
 						</li>
 						<li>
 							Do not spam or flood.
@@ -184,15 +187,15 @@
 							No advertising, no shock sites, no malware. ANY links to other rooms, porn sites or viruses WILL be permanently and instantly banned.
 						</li>
 						<li>
-							When moderators are in the public room, our word is gospel, and blasphemy is punishable by death. (Within reason)
+							Please listen to, and be respectful towards moderators, and refrain from arguing with or complaining about moderation decisions in the public chat.
 							<br/>
 							This means: 
 							<ul>
 								<li>
-									If a mod tells you to stop something, you stop. If their request was unreasonable, resolve it in PMs. If and only if the moderator gives you permission may you resume.
+									If a mod tells you to stop something, you stop. If their request was unreasonable, resolve it in PMs.
 								</li>
 								<li>
-									Backchatting/disputing an official moderator request is trolling. Any attempt to claim innocence or cry foul instead of PMing a moderator, such as "I didn't do anything wrong." or "That's not fair!", will be punished.
+									Disputing an official moderator request in public is trolling. PM us instead, so that it won't disrupt everyone else. This includes comments like "But I didn't do anything wrong!" or "That's not fair!".
 								</li>
 								<li>
 									"Drop it" also means "Pretend it didn't happen for a while".
@@ -200,10 +203,10 @@
 									Alluding to or referencing to the an argument in ANY WAY is as bad as continueing the argument.
 								</li>
 								<li>
-									Just because you weren't originally participating in argument doesn't excuse you.
+									Just because you weren't originally participating in the argument doesn't excuse you.
 								</li>
 								<li>
-									<a href="#tempBan">Temporary Bans</a> may be issued once any moderator has any warning (formal or informal) in relation to this rule, indiscriminantly, and without further warning.
+									<a href="#tempBan">Temporary Bans</a> may be issued if any moderator has recently issued any warning (formal or informal) in relation to this rule, without further warning.
 								</li>
 								<li>
 									<strong><em>There is no excuse</em></strong>. You have been warned.
@@ -223,7 +226,7 @@
 									They neither require, nor count towards warnings for extended bans. However, you may recieve a formal warning at the same time if you are misbehaving.
 								</li>
 								<li>
-									Yes, you might be recieve a temporary ban mistakenly, if so, PM the moderator, and they'll sort it out ASAP, please be patient. 
+									Yes, you might receive a temporary ban mistakenly, if so, PM the moderator, and they'll sort it out ASAP, please be patient. 
 								</li>
 								<li>
 									Any moderator has discretion to shorten or lift a temporary ban at any time. (Within reason)
@@ -234,7 +237,7 @@
 							Each user will recieve at least 3 formal warnings before receiving an extended ban (does not include 10 minute bans). 
 						</li>
 						<li>
-							In general, extended bans will applied for the following durations, in order: First ban is 1, second ban is 2-3 days, third ban is permanent.
+							In general, extended bans will apply for the following durations, in order: First ban is 1 day, second ban is 2-3 days, third ban is permanent.
 							<br/>
 							However, these are just guides, and specific penalties are at the discretion of the acting moderator(s). 
 						</li>
@@ -250,7 +253,7 @@
 				</div>
 			</div>
 			<div id="rulesLowerToggleContainer">
-				<a href="javascript: toggleRulesDisplay();">Click or Pull Down For Rules</a>
+				<a id="rulesToggleAnchor" href="javascript: toggleRulesDisplay();">Click or Pull Down To Show Rules</a>
 			</div>
 		</div>
 	</div>
