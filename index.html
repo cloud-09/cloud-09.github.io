@@ -35,7 +35,7 @@
 			}
 		)();
 		$(document).ready( function() {
-			$( '#header, #rulesLowerToggleContainer' ).on( 'swipe', function(event){toggleRulesDisplay((event.swipestop.coords[1]-event.swipestart.coords[1]) > 0);} );
+			$( '#header, #rulesLowerToggleContainer' ).on( 'swipe', function(event){console.log(event); toggleRulesDisplay((event.swipestop.coords[1]-event.swipestart.coords[1]) > 0);} );
 		} );
 	</script>
 </head>
