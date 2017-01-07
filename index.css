@@ -1,5 +1,9 @@
+body, html {
+	height: 100%;
+}
 body {
 	background-color: #eee;
+	overflow: hidden;
 }
 #header {
 	position: absolute;
@@ -27,14 +31,6 @@ body {
 #header:not(:hover) #titleSection {
 	max-height: 50px;
 	max-height: calc(2em + 20px - 5px);
-}
-#titleSection, #rulesContentWrapper, #rulesLowerToggleContainer a {
-	background-color: rgba(200, 215, 230, 0.9);
-}
-
-#titleHeading
-{
-	display: inline-block;
 }
 
 #chatContainer {
