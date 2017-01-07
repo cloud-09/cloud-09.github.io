@@ -14,7 +14,7 @@
 			font-size: 12px;
 			background-color: #eee;
 			color: #000;
-			overflow: hidden;
+			/*overflow: hidden;*/
 		}
 		h1 {
 			font-size: 2em;
@@ -35,8 +35,8 @@
 		#header {
 			-webkit-transition: max-height ease 0.25s;
 			transition: max-height ease 0.25s;
-			overflow-y: hidden;
-			position: relative;
+			/*overflow-y: hidden;*/
+			/*position: absolute;*/
 			z-index: 150;
 			top:0px;
 			left: 0px;
@@ -66,22 +66,15 @@
 			text-align: center;
 		}
 		#chatContainer {
-			position: relative;
+			/*position: absolute;*/
 			z-index: 100;
 			left: 0;
 			right: 0;
 			top:30px;
 			bottom: 0;
 		}
-
-		#rulesContainer {
-			position: relative;
-			z-index: 100;
-			left: 0;
-			right: 0;
-			bottom:0;
-			max-height: calc(100vh - 44px - 1em - 7px);
-			overflow: visible;
+		#mainContainer {
+			/*position: relative;*/
 		}
 
 		#rulesContent {
@@ -93,31 +86,39 @@
 		}
 
 		#rulesContentWrapper {
-			position: relative;
+			/*position: relative;*/
 			transition: max-height linear 1s;
-			overflow: hidden;
+			/*overflow: hidden;*/
 		}
-/*#rulesContainer[data-display-state=hide] {
-top:calc(100%);
-}
-#rulesContainer[data-display-state=show] {
-top: calc(auto );
-}*/
+		/*#rulesContainer[data-display-state=hide] {
+		top:calc(100%);
+		}
+		#rulesContainer[data-display-state=show] {
+		top: calc(auto );
+		}*/
+		#rulesContainer {
+			/*position: absolute;*/
+			z-index: 100;
+			left: 0;
+			right: 0;
+			top:0;
+			max-height: calc(100vh - 44px - 1em - 7px);
+			overflow: visible;
+		}
+		#rulesContainer[data-display-state=hide] #rulesContentWrapper {
+			max-height: calc(0px);
+		}
 
-#rulesContainer[data-display-state=hide] #rulesContentWrapper {
-	max-height: calc(0px);
-}
-
-#rulesContainer[data-display-state=show] #rulesContentWrapper {
-	max-height: calc(100vh - 44px - 1em - 12px);
-}
+		#rulesContainer[data-display-state=show] #rulesContentWrapper {
+			max-height: calc(100vh - 44px - 1em - 12px);
+		}
 
 /*#rulesContainer[data-display-state=hide]*/
 #rulesLowerToggleContainer {
 	position: absolute;
-	top: calc(-1em - 5px);
-	left: 0;
-	right: 0;
+	bottom: calc(-1em - 5px);
+	left: auto;
+	right: auto;
 	height: 0;
 }
 #rulesLowerToggleContainer {
@@ -129,8 +130,8 @@ top: calc(auto );
 #rulesLowerToggleContainer a {
 	padding: 5px;
 	padding-bottom: 1px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #rulesContent ul li:not(:first-child){
@@ -184,10 +185,10 @@ return function()
 				&#9729; 09
 				|
 			</h1>
-			<a href="javascript: toggleRulesDisplay();">
-				(Show/Hide Rules)
+<!-- 			<a href="javascript: toggleRulesDisplay();">
+				(Click or Swipe Down For Rules)
 			</a>
-			|
+			| -->
 			<a href="http://cloud-09.chatango.com" target="_blank">
 				Chat Only
 			</a>
@@ -198,10 +199,7 @@ return function()
 		</div>
 	</div>
 	<div id="mainContainer">
-		<div id="rulesContainer" data-display-state="show">
-			<div id="rulesLowerToggleContainer">
-				<a href="javascript: toggleRulesDisplay();">(Show/Hide Rules)</a>
-			</div>
+		<div id="rulesContainer" data-display-state="hide">
 			<div id="rulesContentWrapper">
 				<div class="gradientBar">
 				</div>
@@ -284,10 +282,13 @@ return function()
 								<li>
 									"Drop it" also means "Pretend it didn't happen for a while".
 									<br/>
-									Alluding to or referencing to the an argument in ANY WAY is as bad as continueing the argument. 
+									Alluding to or referencing to the an argument in ANY WAY is as bad as continueing the argument.
 								</li>
 								<li>
 									Just because you weren't originally participating in argument doesn't excuse you.
+								</li>
+								<li>
+									<a href="#tempBan">Temporary Bans</a> may be issued once any moderator has any warning (formal or informal) in relation to this rule, indiscriminantly, and without further warning.
 								</li>
 								<li>
 									<strong><em>There is no excuse</em></strong>. You have been warned.
@@ -297,11 +298,28 @@ return function()
 					</ul>
 					<h1>Moderation Guidelines (What to expect from us)</h1>
 					<ul>
-						<li>
-							Each user will recieve at least 3 warnings before receiving a ban.
+						<li id="tempBan">
+							Temporary Bans - of approximately 10 minutes may be applied without warning in order to quickly shut down fights and other drama.
+							<ul>
+								<li>
+									Temporary bans are not a form of punishment in and of themselves.
+								</li>
+								<li>
+									They neither require, nor count towards warnings for extended bans. However, you may recieve a formal warning at the same time if you are misbehaving.
+								</li>
+								<li>
+									Yes, you might be recieve a temporary ban mistakenly, if so, PM the moderator, and they'll sort it out ASAP, please be patient. 
+								</li>
+								<li>
+									Any moderator has discretion to shorten or lift a temporary ban at any time. (Within reason)
+								</li>
+							</ul>
 						</li>
 						<li>
-							In general, bans will applied for the following durations, in order: First ban is 1, second ban is 2-3 days, third ban is permanent.
+							Each user will recieve at least 3 formal warnings before receiving an extended ban (does not include 10 minute bans). 
+						</li>
+						<li>
+							In general, extended bans will applied for the following durations, in order: First ban is 1, second ban is 2-3 days, third ban is permanent.
 							<br/>
 							However, these are just guides, and specific penalties are at the discretion of the acting moderator(s). 
 						</li>
@@ -315,6 +333,9 @@ return function()
 				</div>
 				<div class="gradientBar">
 				</div>
+			</div>
+			<div id="rulesLowerToggleContainer">
+				<a href="javascript: toggleRulesDisplay();">(Show/Hide Rules)</a>
 			</div>
 		</div>
 		<div id="chatContainer">
