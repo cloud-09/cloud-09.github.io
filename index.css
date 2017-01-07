@@ -45,9 +45,6 @@ body {
 	top:30px;
 	bottom: 0;
 }
-#mainContainer {
-	position: relative;
-}
 
 #rulesContent {
 	padding: 5px;
