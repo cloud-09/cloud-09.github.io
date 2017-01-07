@@ -53,7 +53,7 @@ body {
 
 #rulesContentWrapper {
 	position: relative;
-	transition: max-height linear 1s;
+	transition: max-height linear 0.25s;
 	overflow: hidden;
 }
 #rulesContainer[data-display-state=hide] {
