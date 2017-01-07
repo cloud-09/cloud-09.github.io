@@ -1,0 +1,131 @@
+body {
+	background-color: #eee;
+}
+#header {
+	position: absolute;
+	z-index: 150;
+	top:0px;
+	left: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+}
+#header h1 {
+	margin: 0;
+}
+
+#titleSection {
+	padding: 5px;
+	-webkit-transition: max-height ease 0.25s;
+	transition: max-height ease 0.25s;	
+	overflow-y: hidden;
+}
+
+#header:hover #titleSection {
+	max-height: calc(100%);
+}
+#header:not(:hover) #titleSection {
+	max-height: 50px;
+	max-height: calc(2em + 20px - 5px);
+}
+#titleSection, #rulesContentWrapper, #rulesLowerToggleContainer a {
+	background-color: rgba(200, 215, 230, 0.9);
+}
+
+#titleHeading
+{
+	display: inline-block;
+}
+
+#chatContainer {
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	right: 0;
+	top:30px;
+	bottom: 0;
+}
+#mainContainer {
+	position: relative;
+}
+
+#rulesContent {
+	padding: 5px;
+	overflow: auto;
+	box-sizing: border-box;
+	max-height: calc(100vh - 44px - 1em - 12px);
+	overflow: auto;
+	text-align: left;
+}
+
+#rulesContentWrapper {
+	position: relative;
+	transition: max-height linear 1s;
+	overflow: hidden;
+}
+#rulesContainer[data-display-state=hide] {
+	top:calc(100%);
+}
+#rulesContainer[data-display-state=show] {
+	top: calc(auto );
+}
+#rulesContainer {
+	/*
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	right: 0;
+	top:0;*/
+	max-height: calc(100vh - 44px - 1em - 7px);
+	overflow: visible;
+}
+#rulesContainer[data-display-state=hide] #rulesContentWrapper {
+	max-height: calc(0px);
+}
+
+#rulesContainer[data-display-state=show] #rulesContentWrapper {
+	max-height: calc(100vh - 44px - 1em - 12px);
+}
+
+#rulesLowerToggleContainer {
+	position: relative;
+	bottom: calc(-1em);
+	left: auto;
+	right: auto;
+	margin-top: calc(-1em);
+}
+#rulesLowerToggleContainer {
+	overflow: visible;
+	text-align: center;
+}
+#rulesLowerToggleContainer a {
+	padding: 5px;
+	padding-top:0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#rulesContent ul li:not(:first-child){
+	margin-top: 0.5em;
+}
+
+.gradientBar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height:1em;
+}
+.gradientBar:first-child {
+	top:0;
+	background: linear-gradient(to bottom, rgba(200, 215, 230, 1.0), transparent);
+}
+.gradientBar:last-child {
+	bottom:0;
+	background: linear-gradient(to top, rgba(200, 215, 230, 1.0), transparent);
+}
+
+#rulesFrame {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}

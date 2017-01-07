@@ -33,8 +33,7 @@
 			}
 		)();
 		$.ready( function() {
-			$( '#header, #rulesLowerToggleContainer' ).on( 'swipeup', function(event){toggleRulesDisplay(false);} );
-			$( '#header, #rulesLowerToggleContainer' ).on( 'swipedown', function(event){console.log(event);toggleRulesDisplay(true);} );
+			$( '#header, #rulesLowerToggleContainer' ).on( 'swipe', function(event){toggleRulesDisplay((event.swipestop.coords[1]-event.swipestart.coords[1]) > 0);} );
 		} );
 	</script>
 </head>
