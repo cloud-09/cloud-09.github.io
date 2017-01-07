@@ -107,7 +107,7 @@
 
 	   		detectswipe('rulesLowerToggleContainer', function(elm, dir) {
 	   			var rulesContent = document.getElementById('rulesContent');
-	   			if (dir == 'u' && rulesContent.scrollTop >=  (rulesContent.scrollHeight - rulesContent.offsetHeight)) {
+	   			if (dir == 'u') {
 	   				toggleRulesDisplay(false);
 	   			} else if (dir == 'd') {
 	   				toggleRulesDisplay(true);
